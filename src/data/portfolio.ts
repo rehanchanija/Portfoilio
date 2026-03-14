@@ -18,8 +18,16 @@ export const portfolioData = {
   },
   skills: {
     frontend: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Redux"],
-    backend: ["Node.js", "NestJS", "MongoDB", "Prisma", "Firebase"],
-    mobile: ["React Native"],
+    backend: [
+      "Node.js",
+      "NestJS",
+      "MongoDB",
+      "Prisma",
+      "GraphQL",
+      "AWS S3",
+      "Firebase Realtime Database",
+    ],
+    mobile: ["React Native", "REST API Integration", "Firebase"],
     ai: ["Whisper", "Ollama", "Mistral", "Coqui TTS"],
   },
   experience: [
