@@ -85,14 +85,14 @@ export default function ProjectGallery({ images, title, layout = "desktop" }: Pr
         </div>
       </div>
 
-      {/* Thumbnails */}
+      {/* Thumbnails - Stacking Grid instead of horizontal scroll */}
       {images.length > 1 && (
-        <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide max-w-full justify-center">
+        <div className="flex flex-wrap gap-3 justify-center max-w-full">
           {images.map((img, idx) => (
             <button
               key={idx}
               onClick={() => setCurrentIndex(idx)}
-              className={`relative flex-shrink-0 ${isMobile ? "w-12 aspect-[9/16]" : "w-24 aspect-video"} rounded-lg overflow-hidden border-2 transition-all ${
+              className={`relative flex-shrink-0 ${isMobile ? "w-14 aspect-[9/16]" : "w-24 aspect-video"} rounded-lg overflow-hidden border-2 transition-all ${
                 currentIndex === idx ? "border-primary scale-110 shadow-lg shadow-primary/20" : "border-transparent opacity-40 hover:opacity-100"
               }`}
             >

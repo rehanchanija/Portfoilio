@@ -69,10 +69,20 @@ export default function Projects() {
                   ))}
                 </div>
                 <div className="flex items-center gap-4 pt-4 border-t border-white/5">
-                  <a href="#" className="flex items-center gap-1.5 text-xs font-semibold text-muted hover:text-primary transition-colors">
+                  <a 
+                    href={project.liveLink || "#"} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 text-xs font-semibold text-muted hover:text-primary transition-colors"
+                  >
                     <ExternalLink size={14} /> Live Demo
                   </a>
-                  <a href="#" className="flex items-center gap-1.5 text-xs font-semibold text-muted hover:text-primary transition-colors">
+                  <a 
+                    href={project.sourceLink || "#"} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 text-xs font-semibold text-muted hover:text-primary transition-colors"
+                  >
                     <Github size={14} /> Source
                   </a>
                 </div>

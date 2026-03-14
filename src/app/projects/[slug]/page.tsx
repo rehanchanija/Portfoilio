@@ -29,7 +29,7 @@ export default function ProjectDetail() {
   }
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen overflow-x-hidden">
       <Navbar />
       
       <section className="pt-32 pb-24 relative overflow-hidden">
@@ -70,13 +70,17 @@ export default function ProjectDetail() {
 
                 <div className="flex items-center gap-6">
                   <a 
-                    href="#" 
+                    href={project.liveLink || "#"} 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 px-6 py-3 bg-primary text-black font-bold rounded-full hover:bg-primary/90 transition-all transform hover:scale-105"
                   >
                     <ExternalLink size={18} /> Live Demo
                   </a>
                   <a 
-                    href="#" 
+                    href={project.sourceLink || "#"} 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all"
                   >
                     <Github size={18} /> Source Code
