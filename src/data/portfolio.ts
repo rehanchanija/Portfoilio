@@ -68,6 +68,7 @@ export const portfolioData = {
       description:
         "A real-time enterprise admin platform built for dealer, sub-dealer, and order management with pricing workflows, analytics, and field tracking. The system supports live order status updates, role-based workflows, reporting, and map-based operational monitoring.",
       tech: ["React.js", "NestJS", "PostgreSQL", "Real-time Tracking"],
+      image: "/images/nakoda.png",
     },
     {
       title: "KYKSRJN Ticketing Platform",
