@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import { portfolioData } from "@/data/portfolio";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Projects() {
   return (
@@ -17,13 +18,17 @@ export default function Projects() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {portfolioData.projects.map((project, idx) => (
-            <motion.div
+            <Link
+              href={`/projects/${project.slug}`}
               key={project.title}
+              className="group"
+            >
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="glass rounded-3xl overflow-hidden group hover:border-primary/20 transition-all"
+              className="glass rounded-3xl overflow-hidden group hover:border-primary/20 transition-all h-full"
             >
               <div className="aspect-video bg-white/5 relative overflow-hidden">
                 {project.image ? (
@@ -36,6 +41,14 @@ export default function Projects() {
                   <div className="absolute inset-0 opacity-20 bg-grid" />
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent z-10" />
+                
+                {/* View Project Overlay */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 z-30 transition-opacity bg-background/40 backdrop-blur-[2px]">
+                   <div className="bg-primary text-black px-4 py-2 rounded-full font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                      View Project <ArrowRight size={16} />
+                   </div>
+                </div>
+
                 <div className="absolute inset-x-6 bottom-6 z-20">
                     <span className="text-[10px] uppercase tracking-widest font-bold text-primary px-2 py-0.5 bg-primary/10 rounded-full mb-2 inline-block backdrop-blur-sm">
                         {project.category}
@@ -65,6 +78,7 @@ export default function Projects() {
                 </div>
               </div>
             </motion.div>
+            </Link>
           ))}
         </div>
       </div>

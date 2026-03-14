@@ -1,3 +1,5 @@
+import { image } from "framer-motion/client";
+
 export const portfolioData = {
   name: "Mo Rehan",
   role: "Full Stack Developer",
@@ -45,46 +47,130 @@ export const portfolioData = {
   ],
   projects: [
     {
+      slug: "cmo-gallery",
       title: "CMO Gallery (Hamar CM)",
       category: "Government Project",
       description:
-        "A government mobile application developed for the Chief Minister's Office using React Native, designed as an official media and information platform for event updates, multimedia access, and citizen engagement. The application includes AI-powered face search, media galleries, PDF publications, and live streaming integration.",
-      tech: ["React Native", "AI Face Search", "Multimedia Integration"],
-      image: "/images/cmo.png",
+        "A high-performance media dissemination platform designed for the Chhattisgarh Government. It serves as a digital hub for citizens, journalists, and government officials to access official media content in real-time.",
+      tech: ["React Native", "Redux Toolkit", "YouTube Live", "Localization"],
+      image: "/images/CMO1.png",
+      images: ["/images/CMO1.png", "/images/CMO2.png"],
       highlight: true,
+      layout: "mobile",
+      details: {
+        overview: "The CMO Gallery acts as the primary digital asset management system for the Chief Minister's Office. It integrates live broadcasting, multimedia repositories, and interactive gazettes into a single mobile experience.",
+        features: [
+          { title: "Live Event Broadcasting", description: "Integrates YouTube Live to stream government events and speeches directly to the mobile app." },
+          { title: "Multimedia Repository", description: "Houses a massive library of high-resolution photographs and videos categorized by events and departments." },
+          { title: "Jan Patrika (Citizen Gazetter)", description: "Provides access to official government newsletters and monthly magazines in PDF format." },
+          { title: "Interactive Galleries", description: "Masonry-style photo gallery with advanced filtering (Events with CM vs General Events)." },
+          { title: "Localization System", description: "Custom translation engine allowing instant switching between Hindi and English." }
+        ],
+        techStack: [
+          { component: "Frontend", tech: "React Native (v0.79.1)", purpose: "Cross-platform mobile development" },
+          { component: "State", tech: "Redux Toolkit", purpose: "Centralized management for app-wide data" },
+          { component: "Media", tech: "react-native-youtube-iframe", purpose: "Embedded video playback" },
+          { component: "Animations", tech: "Lottie", purpose: "Premium vector animations on loaders" }
+        ],
+        workflow: [
+          { step: "Bootstrap", content: "On launch, the app verifies connectivity and session state via Redux." },
+          { step: "API Integration", content: "Calls tailored backend REST APIs to fetch normalized media data." },
+          { step: "UX Flow", content: "Parallel API calls trigger Stories, Notices, and Event Galleries for a seamless experience." }
+        ]
+      }
     },
     {
+      slug: "bastar-nirman",
       title: "Bastar Nirman",
       category: "Government Project",
       description:
-        "A complete government infrastructure management platform developed for monitoring public construction projects, contractor workflows, and field execution activities. The system includes backend services, admin panel, and mobile application with project tracking, attendance, reporting, and map-based monitoring.",
-      tech: ["Next.js", "Node.js", "PostgreSQL", "Google Maps API"],
-      image: "/images/bastar.png",
+        "An enterprise-grade construction management suite designed to streamline the planning, tracking, and execution of infrastructure projects for government and private works.",
+      tech: ["NestJS", "Next.js", "React Native", "MongoDB", "AWS S3"],
+      image: "/images/bastar/bastar1.png",
+      images: [
+        "/images/bastar/bastar1.png",
+        "/images/bastar/bastar2.jpeg",
+        "/images/bastar/bastar3.jpeg",
+        "/images/bastar/bastar4.jpeg",
+      ],
       highlight: true,
+      layout: "mobile",
+      details: {
+        overview: "Baster-Nirman provides a centralized ecosystem for administrators to manage master data and for field staff to report progress in real-time with geographically verified proof of work.",
+        features: [
+          { title: "Centralized Engine", description: "Backend managing relationships between hierarchical master data, contractors, and project stages." },
+          { title: "Admin Command Center", description: "Dashboard for monitoring project lifecycles from 'Ongoing Tender' to 'Completed' with visual analytics." },
+          { title: "Field Tool (App)", description: "Real-time reporting for engineers with geolocation-tagged attendance and offline photo capturing." },
+          { title: "Geospatial Tracking", description: "Map integration (Leaflet/Google Maps) to visualize project distributions across districts." }
+        ],
+        techStack: [
+          { component: "Backend", tech: "NestJS (TypeScript)", purpose: "Robust, scalable API architecture" },
+          { component: "Admin Panel", tech: "Next.js (App Router)", purpose: "High-performance dashboard with Tailwind & Radix UI" },
+          { component: "Mobile App", tech: "React Native", purpose: "Cross-platform reporting tool for field staff" },
+          { component: "Database", tech: "MongoDB (Mongoose)", purpose: "Flexible NoSQL schema for complex project logs" }
+        ],
+        workflow: [
+          { step: "Initialization", content: "Admins set up master data (Regions, Work Types, Schemes) in the Admin Panel." },
+          { step: "Tracking", content: "Field staff use the app to log progress with photos; updates trigger Stage Trackers in the backend." },
+          { step: "Audit", content: "Admins review logs and photos for approval or rejection (for corrections)." }
+        ]
+      }
     },
     {
+      slug: "nakoda-tmt",
       title: "Nakoda TMT",
       category: "Enterprise Admin Management System",
       description:
-        "A real-time enterprise admin platform built for dealer, sub-dealer, and order management with pricing workflows, analytics, and field tracking. The system supports live order status updates, role-based workflows, reporting, and map-based operational monitoring.",
-      tech: ["React.js", "NestJS", "PostgreSQL", "Real-time Tracking"],
+        "A sophisticated enterprise management platform designed to streamline operations, sales tracking, and distribution networks for steel manufacturing units.",
+      tech: ["Next.js 15", "Firebase", "Radix UI", "Tailwind 4.0", "Recharts"],
       image: "/images/nakoda.png",
+      images: ["/images/nakoda.png"],
+      layout: "desktop",
+      details: {
+        overview: "The Nakoda TMT admin panel acts as the central hub for overseeing the entire business ecosystem, including dealers, sub-dealers, sales tracking, and field surveys.",
+        features: [
+          { title: "Order Management", description: "System to manage orders, track fulfillments, and view granular order history." },
+          { title: "Dealer Network", description: "Manage the hierarchy of dealers and sub-dealers, including profiles and performance metrics." },
+          { title: "Live Tracking", description: "Integration of Google Maps for journey tracking of deliveries or field staff." },
+          { title: "Field Surveys (ASM)", description: "Tools for Area Sales Managers to conduct or review feedback from the field." }
+        ],
+        techStack: [
+          { component: "Framework", tech: "Next.js 15 (App Router)", purpose: "Server-side rendering and high performance" },
+          { component: "Backend", tech: "Firebase", purpose: "Real-time data, auth, and cloud functions" },
+          { component: "Analytics", tech: "Recharts", purpose: "Interactive business analytics and sales charts" },
+          { component: "UI", tech: "Tailwind 4.0 + Radix", purpose: "Premium 'v0' design aesthetic with clean components" }
+        ],
+        workflow: [
+          { step: "Orders", content: "Dealers place orders which are tracked through various fulfillment stages." },
+          { step: "Tracking", content: "Live monitoring of ASM movements and delivery journeys on integrated maps." },
+          { step: "Reporting", content: "Data visualization for sales performance and incentive program management." }
+        ]
+      }
     },
     {
+      slug: "kyksrjn",
       title: "KYKSRJN Ticketing Platform",
       category: "Web Platform",
       description:
         "A web-based ticketing platform developed for Khandelwal Yuva Kalyan Samaj Rajnandgaon, focused on easy ticket booking, smooth navigation, secure authentication, and mobile-friendly user experience.",
       tech: ["React.js", "Firebase", "Tailwind CSS"],
+      image: "/images/ai.png", // placeholder or as needed
+      images: [],
+      layout: "desktop",
     },
     {
+      slug: "chhattisgarh-herbal",
       title: "Chhattisgarh Herbal",
       category: "Ecommerce / Business Platform",
       description:
         "A business-oriented web platform developed with responsive frontend architecture and scalable UI modules to support digital product presentation and business operations.",
       tech: ["Next.js", "Tailwind CSS", "Scalable UI"],
+      image: "/images/cg herbal.png",
+      images: ["/images/cg herbal.png"],
+      layout: "desktop",
     },
     {
+      slug: "ai-automation",
       title: "AI Voice Automation Platform",
       category: "Personal Research Project",
       description:
@@ -99,6 +185,8 @@ export const portfolioData = {
         "Coqui TTS",
       ],
       image: "/images/ai.png",
+      images: ["/images/ai.png"],
+      layout: "desktop",
     },
   ],
   aiResearch: {
